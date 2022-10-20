@@ -1,0 +1,44 @@
+class Solution 
+{
+    public void sortColors(int[] nums) 
+    {
+        int g;
+        int low=0;
+        int mid=0;
+        int high=nums.length-1;
+        while(mid<=high)
+        {
+        if(nums[mid]==0)
+        {
+        g=nums[mid];
+        nums[mid]=nums[low];
+        nums[low]=g;
+        low++;
+        mid++;
+        }
+        else if(nums[mid]==1)
+        {
+        mid++;
+        }
+        else if(nums[mid]==2)
+        {
+        g=nums[mid];
+        nums[mid]=nums[high];
+        nums[high]=g;
+        high--;
+        }
+    }
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+-> place low and mid at 0th index
+-> place high at last index
+-> now take num[mid] 
+-> loop starts till (mid is >= high)
+-> if it is 0 then swap (low and mid ) and increment low and mid by 1
+-> if it is 1 then do nothing just increment mid by 1
+-> if it is 2 then swap (mid and high) and decrease high by 1
+
+Array will be sorted in O(N) complexity.
