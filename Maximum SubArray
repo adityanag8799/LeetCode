@@ -1,0 +1,16 @@
+// by Kadane's Algorithm
+
+class Solution {
+    public int maxSubArray(int[] nums) 
+    {
+    int sum=0; // taking two vaiables sum and max, initialize sum as 0 and max as MIN_VALUE or first element of array. 
+    int max=nums[0];
+    for(int i=0;i<nums.length;i++)      // loop will traverse till end and calculate the sum , if the sum is negative then set sum as 0
+    {
+    sum+=nums[i];
+    if(sum>max) max=sum;               // first we calculate sum and compare it with previous value of max , if the sum is greater then we will update max as sum 
+    if(sum<0) sum=0;
+    }
+    return max;                       // in the end we will have the maximum sum value of the subarray in max variable.
+    }
+}
