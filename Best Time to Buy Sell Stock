@@ -1,0 +1,19 @@
+class Solution {
+    public int maxProfit(int[] prices) 
+    {
+    // prices ka difference nikalenge , agr difference purane diff se jyada hua toh 
+    // jyada wala , nahi toh kam wala return kar denge.
+   
+    int profit=0;                                        // Initially mark profit as zero, 
+    int p=0;                                            // take temporary variable to get the difference between prices .
+    for(int i=0;i<prices.length-1;i++)
+    {
+    for(int j=i;j<prices.length;j++)
+    {
+    p=prices[j]-prices[i];                              // calculate the price difference and compare it with previous one, if the price difference is more then update it 
+    if(profit < p) profit=p;
+    }
+    } 
+    return profit;                                    // return the final profit.   
+    }
+}
