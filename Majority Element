@@ -1,0 +1,24 @@
+class Solution {
+    public int majorityElement(int[] nums) 
+    {
+    int count=0;
+    int element=0;
+    for (int x:nums)
+    {
+    if(count==0) element=x;
+    if(element==x) count++;
+    else count--;
+    }
+    return element;
+    }
+}
+
+--------------------------------------------------------------------
+Moore Algorithm
+
+-> take two variable count and element as 0
+-> now traverse the nums
+-> if the value of count is 0 then make element as x
+-> if u find the same element then increase the count 1
+-> if u find different element then decrease the count by 1
+-> in the end u the element is the final answer which appear more than [n/2] times
