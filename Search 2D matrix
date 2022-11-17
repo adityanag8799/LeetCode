@@ -1,0 +1,28 @@
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) 
+    {
+    if(matrix.length==0) return false;
+    int n=matrix.length;    //row
+    int m=matrix[0].length; // column
+    
+    int low=0;
+    int high=(n*m)-1;
+    int mid;
+    while(low<=high)
+    {
+    mid=low+(high-low)/2;
+    if(target==matrix[mid/m][mid%m]) return true;
+    else if(target > matrix[mid/m][mid%m]) low=mid+1;
+    else if(target < matrix[mid/m][mid%m]) high=mid-1;  
+    }
+    return false;
+        
+    }
+}
+
+------------------------------------------------------------------------
+-> go for binary search
+-> take low=0, high = length-1
+-> calculate mid and convert that mid value as 2d 
+-> for that  mid/column will be the row and mid%column will be the column
+-> if found return true, else false
