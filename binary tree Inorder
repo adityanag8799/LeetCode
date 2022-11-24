@@ -1,0 +1,53 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) 
+    {
+    List<Integer> list=new LinkedList<>();
+    int top=-1;
+    TreeNode[] stack;
+    stack=new TreeNode[100];
+    TreeNode popped,current;
+    while(root!=null)
+    {
+    top++;
+    stack[top]=root;
+    root=root.left;
+    }
+    while(top!=-1)
+    {
+    current=stack[top];
+    top--;
+    popped=current;
+    current=current.right;
+    while(current!=null)
+    {
+    top++;
+    stack[top]=current;
+    current=current.left;
+    }
+    list.add(popped.val);
+    }
+    return list;
+    }
+}
+--------------------------------------------------
+push all the nodes from root to its left nodes into stack
+loops starts,
+loop will run till stack is not empty
+pop element from the stack 
+push all elements from right of popped to its extreme left
+process popped element
