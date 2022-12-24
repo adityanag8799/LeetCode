@@ -1,0 +1,44 @@
+int removeDuplicates(int* nums, int numsSize)
+{
+/* method 1 : 
+
+int i,j,k;
+i=0;
+j=1;
+int size=numsSize;
+k=j;
+while(j<=size-1)
+{
+if(nums[i]==nums[j])
+{
+for(k=j;k<size-1;k++) nums[k]=nums[k+1];    
+size--;
+}
+if(nums[i]!=nums[i+1]) 
+{
+i++;
+j++;
+}
+}
+return j;
+*/ 
+// method 2 : 
+int i,j;
+i=0;
+for(j=1;j<numsSize;j++)
+{
+if(nums[i]!=nums[j])
+{
+    i++;
+    nums[i]=nums[j];
+}
+}
+return i+1;
+}
+
+----------------------------------------------------------------------
+-> take i and j
+-> start iteratinf the array and check for different number.
+-> if we found same number then swap the date between i and j 
+-> return i+1;
+
