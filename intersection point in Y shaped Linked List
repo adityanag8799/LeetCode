@@ -1,0 +1,35 @@
+class Intersect
+{
+    //Function to find intersection point in Y shaped Linked Lists.
+ int len(Node t)
+    {
+    int count=0;
+    while(t!=null)
+    {
+        count++;
+        t=t.next;
+    }
+    return count;
+    }
+	int intersectPoint(Node head1, Node head2)
+	{
+    int len1=len(head1);
+    int len2=len(head2);
+    int dl=Math.abs(len1-len2);
+    if(len1>len2) for(int i=0;i<dl;i++) head1=head1.next;
+    else if(len2>len1) for(int i=0;i<dl;i++) head2=head2.next;
+    while(head1!=null && head2!=null)
+    {
+    if(head1==head2) return head1.data;
+    head1=head1.next;
+    head2=head2.next;
+    }
+    return -1;
+	}
+}
+
+---------------------------------------
+-> find the length of both the linked list.
+-> traverse the larger size list to positive difference of list1 and list2 times
+-> get both the pointer at same patch, now start moving forward and check for common next.
+-> if not found return -1
