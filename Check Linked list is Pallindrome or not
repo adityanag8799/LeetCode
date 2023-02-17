@@ -1,0 +1,28 @@
+
+    boolean isPalindrome(Node head) 
+    {
+    Stack<Node> stk=new Stack<>();
+    Node k,t;
+    k=head;
+    t=head.next;
+    while(t!=null && t.next!=null)
+    {
+    k=k.next;
+    t=t.next.next;
+    }
+    while(k!=null)
+    {
+    stk.push(k);
+    k=k.next;
+    }
+    Node tmp;
+    t=head;
+    while(!stk.isEmpty())
+    {
+    tmp=stk.pop();
+    if(t.data!=tmp.data) return false;
+    t=t.next;
+    }
+    return true;
+    }    
+
